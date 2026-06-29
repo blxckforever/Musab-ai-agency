@@ -1,0 +1,330 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Stop Losing Calls. Start Closing Bookings.</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+:root{
+  --ink:#13151A;
+  --panel:#1A1D24;
+  --bone:#EDEAE2;
+  --grey:#8B8F99;
+  --amber:#D98E4A;
+  --line:rgba(237,234,226,0.07);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--ink);
+  color:var(--bone);
+  font-family:'Inter',sans-serif;
+  line-height:1.5;
+  overflow-x:hidden;
+}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px;}
+
+/* HERO */
+.hero{
+  padding:160px 24px 96px;
+  text-align:center;
+  position:relative;
+}
+.eyebrow{
+  font-family:'Inter',sans-serif;
+  font-weight:600;
+  font-size:12px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--amber);
+  margin-bottom:32px;
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+}
+.eyebrow::before{
+  content:'';
+  width:5px;height:5px;border-radius:50%;
+  background:var(--amber);
+  box-shadow:0 0 0 0 rgba(217,142,74,0.6);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(217,142,74,0.45);}
+  70%{box-shadow:0 0 0 7px rgba(217,142,74,0);}
+  100%{box-shadow:0 0 0 0 rgba(217,142,74,0);}
+}
+h1{
+  font-family:'Fraunces',serif;
+  font-weight:900;
+  font-size:clamp(38px,6.4vw,68px);
+  line-height:1.08;
+  letter-spacing:-0.015em;
+  max-width:720px;
+  margin:0 auto 28px;
+}
+h1 em{
+  font-style:italic;
+  font-weight:500;
+  color:var(--amber);
+}
+.sub{
+  font-size:18px;
+  font-weight:400;
+  color:var(--grey);
+  max-width:460px;
+  margin:0 auto;
+  line-height:1.6;
+}
+
+/* TICKER */
+.ticker-card{
+  max-width:440px;
+  margin:72px auto 0;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:28px 30px;
+  text-align:left;
+}
+.ticker-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.ticker-left{display:flex;align-items:center;gap:13px;}
+.phone-icon{
+  width:36px;height:36px;
+  border-radius:50%;
+  background:rgba(217,142,74,0.1);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  position:relative;
+}
+.phone-icon svg{width:16px;height:16px;}
+.ringing .phone-icon{animation:ring 0.6s infinite;}
+@keyframes ring{
+  0%,100%{transform:rotate(0deg);}
+  25%{transform:rotate(-12deg);}
+  75%{transform:rotate(12deg);}
+}
+.ticker-status{font-size:13px;color:var(--grey);}
+.ticker-status .label{
+  display:block;
+  font-size:10.5px;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:0.09em;
+  color:var(--grey);
+  margin-bottom:3px;
+}
+.ticker-state{font-size:15px;font-weight:600;color:var(--bone);}
+.ticker-state.missed{color:var(--amber);}
+.ticker-state.booked{color:var(--bone);}
+.lost-counter{
+  font-family:'Inter',sans-serif;
+  font-size:26px;
+  font-weight:700;
+  color:var(--amber);
+  text-align:right;
+  font-feature-settings:"tnum";
+}
+.lost-counter.recovered{color:var(--bone);}
+.lost-label{
+  font-size:10px;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:0.09em;
+  color:var(--grey);
+  text-align:right;
+  margin-top:3px;
+}
+.ticker-divider{height:1px;background:var(--line);margin:20px 0;}
+.ticker-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11.5px;
+  color:var(--grey);
+  font-feature-settings:"tnum";
+}
+
+/* VALUE */
+.value{
+  padding:120px 24px;
+  border-top:1px solid var(--line);
+}
+.value-inner{max-width:600px;margin:0 auto;text-align:center;}
+.value h2{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  font-size:clamp(26px,3.6vw,34px);
+  line-height:1.3;
+  letter-spacing:-0.01em;
+  margin-bottom:24px;
+}
+.value p{
+  color:var(--grey);
+  font-size:16.5px;
+  line-height:1.7;
+  max-width:520px;
+  margin:0 auto;
+}
+
+/* PROOF */
+.proof{padding:0 24px 120px;}
+.proof-grid{
+  max-width:880px;margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+}
+.proof-item{background:var(--panel);padding:40px 30px;}
+.proof-num{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  font-size:32px;
+  color:var(--amber);
+  margin-bottom:14px;
+  letter-spacing:-0.01em;
+}
+.proof-item p{font-size:14.5px;color:var(--grey);line-height:1.65;}
+.proof-item strong{color:var(--bone);font-weight:600;}
+
+/* CTA */
+.cta-section{
+  padding:120px 24px 140px;
+  text-align:center;
+  border-top:1px solid var(--line);
+}
+.cta-section h2{
+  font-family:'Fraunces',serif;
+  font-weight:900;
+  font-size:clamp(28px,4.4vw,42px);
+  letter-spacing:-0.01em;
+  margin-bottom:18px;
+  max-width:540px;
+  margin-left:auto;margin-right:auto;
+}
+.cta-section .sub{margin-bottom:44px;}
+.cta-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--amber);
+  color:var(--ink);
+  font-weight:700;
+  font-size:16px;
+  padding:17px 34px;
+  border-radius:10px;
+  text-decoration:none;
+  transition:transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow:0 8px 24px -8px rgba(217,142,74,0.4);
+}
+.cta-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px -8px rgba(217,142,74,0.5);
+}
+.cta-btn:focus-visible{outline:2px solid var(--bone);outline-offset:3px;}
+.cta-note{
+  margin-top:22px;
+  font-size:12.5px;
+  color:var(--grey);
+}
+
+@media (max-width:640px){
+  .hero{padding:100px 20px 64px;}
+  .ticker-card{margin:48px 16px 0;padding:22px;}
+  .value{padding:88px 24px;}
+  .proof{padding:0 24px 88px;}
+  .proof-grid{grid-template-columns:1fr;}
+  .cta-section{padding:88px 24px 96px;}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important;}
+}
+</style></head><body>
+
+<section class="hero">
+  <div class="eyebrow">Live for London service businesses</div>
+  <h1>Every missed call is a customer calling <em>your competitor</em> next.</h1>
+  <p class="sub">We build the AI booking system and Meta ad engine that catches every lead — so you stop losing revenue you never even see disappear.</p>
+
+  <div class="ticker-card" id="tickerCard">
+    <div class="ticker-row ringing" id="tickerRow">
+      <div class="ticker-left">
+        <div class="phone-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#D98E4A" stroke-width="2"><path d="M3 5a2 2 0 0 1 2-2h2.5l2 5-2 1.5a11 11 0 0 0 5 5l1.5-2 5 2V19a2 2 0 0 1-2 2h-1C9.5 21 3 14.5 3 6V5z"/></svg>
+        </div>
+        <div class="ticker-status">
+          <span class="label">Incoming call</span>
+          <span class="ticker-state" id="tickerState">Ringing…</span>
+        </div>
+      </div>
+      <div>
+        <div class="lost-counter" id="lostCounter">£0</div>
+        <div class="lost-label" id="lostLabel">at risk</div>
+      </div>
+    </div>
+    <div class="ticker-divider"></div>
+    <div class="ticker-foot">
+      <span id="tickerFootLeft">07:42 PM · No answer after 6 rings</span>
+      <span>SAT. JOB VALUE £480</span>
+    </div>
+  </div>
+</section>
+
+<section class="value">
+  <div class="value-inner">
+    <h2>You didn't lose the job. You never knew you had it.</h2>
+    <p>62% of calls to small businesses go unanswered, and 85% of those callers never ring back — they call the next name on Google. No report flags it. No line item shows it. It just quietly slows everything down. We close that gap with an AI receptionist that answers, books, and follows up while you're on the tools — paired with Meta ads that keep the calls coming in the first place.</p>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="proof-grid">
+    <div class="proof-item">
+      <div class="proof-num">24/7</div>
+      <p><strong>Never misses a call.</strong> Answers, qualifies, and books appointments straight into your calendar — nights, weekends, mid-job.</p>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">&lt;48h</div>
+      <p><strong>Live in two days.</strong> No new software to learn, no staff retraining. It plugs into the number you already give customers.</p>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">0</div>
+      <p><strong>Zero generic playbooks.</strong> Ads and booking flow built around your trade, your area, your actual job value — not a template.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>See exactly how many calls you're losing this week.</h2>
+  <p class="sub">15-minute call. We show you the number before you spend a penny.</p>
+  <a href="https://calendly.com/musab" class="cta-btn">Book Your Free Call →</a>
+  <div class="cta-note">No contract to start · Musab</div>
+</section>
+
+<script>
+const states = [
+  { state: 'Ringing…', cls: '', value: 0, lostLabel: 'at risk', ringing: true, foot: '07:42 PM · Ringing…' },
+  { state: 'Missed', cls: 'missed', value: 480, lostLabel: 'lost', ringing: false, foot: '07:42 PM · No answer after 6 rings' },
+  { state: 'AI Answered', cls: 'booked', value: 480, lostLabel: 'recovered', ringing: false, foot: '07:43 PM · Booked Tue 9:00 AM', recovered: true }
+];
+let i = 0;
+const row = document.getElementById('tickerRow');
+const stateEl = document.getElementById('tickerState');
+const counterEl = document.getElementById('lostCounter');
+const labelEl = document.getElementById('lostLabel');
+const footEl = document.getElementById('tickerFootLeft');
+
+function render(s){
+  stateEl.textContent = s.state;
+  stateEl.className = 'ticker-state ' + s.cls;
+  counterEl.textContent = '£' + s.value;
+  counterEl.className = 'lost-counter' + (s.recovered ? ' recovered' : '');
+  labelEl.textContent = s.lostLabel;
+  footEl.textContent = s.foot;
+  row.className = 'ticker-row' + (s.ringing ? ' ringing' : '');
+}
+render(states[0]);
+setInterval(() => { i = (i + 1) % states.length; render(states[i]); }, 2200);
+</script>
+</body></html>
